@@ -67,7 +67,7 @@ const SummaryPage = () => {
 
   return (
     <>
-      <MetaTags title="Summary" description="Summary page" />
+      <MetaTags title="Zusammenfassungen" description="Summary page" />
 
       <h1>Zusammenfassungen</h1>
       <h2>Hier findest du Zusammenfassungen der Besprechungen</h2>

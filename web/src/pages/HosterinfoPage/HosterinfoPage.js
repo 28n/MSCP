@@ -3,7 +3,7 @@ import { MetaTags } from '@redwoodjs/web'
 const HosterinfoPage = () => {
   return (
     <>
-      <MetaTags title="Hosterinfo" description="Hosterinfo page" />
+      <MetaTags title="Hoster-Info" description="Hosterinfo page" />
 
       <h1>Informationen für den Hoster</h1>
       <div className='dashboard-content'>

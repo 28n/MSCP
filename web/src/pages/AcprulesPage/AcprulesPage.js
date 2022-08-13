@@ -6,7 +6,7 @@ const AcprulesPage = () => {
   const { side } = useParams()
   return (
     <>
-      <MetaTags title="Acprules" description="Acprules page" />
+      <MetaTags title="ACP-Regeln" description="Acprules page" />
       <h1>ACP-Regeln</h1>
       <h2>
         Hier findest du alle Regelungen zur Verwendung des Admin Control Panel

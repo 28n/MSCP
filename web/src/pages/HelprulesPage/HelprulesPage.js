@@ -7,7 +7,7 @@ const HelprulesPage = () => {
   const { side } = useParams()
   return (
     <>
-      <MetaTags title="Helprules" description="Helprules page" />
+      <MetaTags title="Hilfestellungen" description="Helprules page" />
 
       <h1>HelprulesPage</h1>
       <h2>Hier findest du Hilfestellungen für die gewöhnlichsten Fragen</h2>

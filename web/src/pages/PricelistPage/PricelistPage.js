@@ -20,7 +20,7 @@ const PricelistPage = () => {
   }
   return (
     <>
-      <MetaTags title="Pricelist" description="Pricelist page" />
+      <MetaTags title="Preislisten" description="Pricelist page" />
 
       <h1>Preislisten</h1>
       <h2>Hier findest du alle Preislisten!</h2>

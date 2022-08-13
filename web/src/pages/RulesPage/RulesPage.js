@@ -9,6 +9,7 @@ const RulesPage = () => {
 
   return (
     <>
+      <MetaTags title='Grundsätze' description='Grundsätze' />
       <h1>Grundsätze</h1>
       <h2>
         Auf dieser Seite werden dir deine entsprechenden Grundsätze angezeigt.

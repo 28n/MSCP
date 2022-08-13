@@ -5,7 +5,7 @@ const DeveloperTodolistPage = () => {
   return (
     <>
       <MetaTags
-        title="DeveloperTodolist"
+        title="Todoliste"
         description="DeveloperTodolist page"
       />
 

@@ -24,7 +24,7 @@ const AdminUserSearchPage = () => {
   }
   return (
     <>
-      <MetaTags title="AdminUserSearch" description="AdminUserSearch page" />
+      <MetaTags title="Admin-Benutzerverwaltung" description="AdminUserSearch page" />
 
       <h1>Benutzerverwaltung</h1>
       <h2>

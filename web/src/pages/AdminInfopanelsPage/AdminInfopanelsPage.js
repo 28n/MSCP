@@ -43,7 +43,7 @@ const AdminInfopanelsPage = () => {
   }
   return (
     <>
-      <MetaTags title="AdminInfopanels" description="AdminInfopanels page" />
+      <MetaTags title="Admin-Infopanels" description="AdminInfopanels page" />
       <h1>Infopanels verwalten</h1>
       <h2>
         Hier siehst du alle Infopanels, die du mit deinem Rang verwalten kannst.
@@ -126,7 +126,7 @@ const AdminInfopanelsPage = () => {
                     <option value={"acprules"}>ACP-Regeln</option>
                     <option value={"helprules"}>Hilfestellungen</option>
                   </SelectField>
-                    <Submit>Absenden</Submit>
+                  <Submit>Absenden</Submit>
                 </Form>
               </div>
             </div>

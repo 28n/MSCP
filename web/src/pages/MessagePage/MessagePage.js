@@ -6,7 +6,7 @@ const MessagePage = () => {
   const { side } = useParams()
   return (
     <>
-      <MetaTags title="Message" description="Message page" />
+      <MetaTags title="Mitteilungen" description="Message page" />
 
       <h1>Mitteilungen</h1>
       <h2>

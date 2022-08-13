@@ -10,7 +10,7 @@ const AdminDashboardPage = () => {
   }
   return (
     <>
-      <MetaTags title="AdminDashboard" description="AdminDashboard page" />
+      <MetaTags title="Admin-Dashboard" description="AdminDashboard page" />
 
       <h1>Admin-Dashboard</h1>
       <h2>

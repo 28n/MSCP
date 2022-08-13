@@ -85,7 +85,7 @@ const AdminNewsPage = () => {
   }
   return (
     <>
-      <MetaTags title="AdminNews" description="AdminNews page" />
+      <MetaTags title="Admin-News" description="AdminNews page" />
 
       <h1>AdminNewsPage</h1>
       <h2>Hier kannst du Neuigkeiten an deine Kollegen versenden</h2>
@@ -211,15 +211,15 @@ const AdminNewsPage = () => {
                       Bitte auswählen - {currentUser.roles}
                     </option>
                     {currentUser.roles === 'Supportleitung' ||
-                    currentUser.roles === 'Operator' ||
-                    currentUser.roles === 'Administrator' ||
-                    currentUser.roles === 'Entwickler' ? (
+                      currentUser.roles === 'Operator' ||
+                      currentUser.roles === 'Administrator' ||
+                      currentUser.roles === 'Entwickler' ? (
                       <option value={'support'}>Support</option>
                     ) : null}
                     {currentUser.roles === 'Moderatorleitung' ||
-                    currentUser.roles === 'Operator' ||
-                    currentUser.roles === 'Administrator' ||
-                    currentUser.roles === 'Entwickler' ? (
+                      currentUser.roles === 'Operator' ||
+                      currentUser.roles === 'Administrator' ||
+                      currentUser.roles === 'Entwickler' ? (
                       <option value={'moderation'}>Moderation</option>
                     ) : null}
                   </SelectField>
