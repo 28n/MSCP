@@ -1,0 +1,992 @@
+/**
+ * START --- SETUP TAILWINDCSS EDIT
+ *
+ * `yarn rw setup ui tailwindcss` placed these imports here
+ * to inject Tailwind's styles into your CSS.
+ * For more information, see: https://tailwindcss.com/docs/installation#include-tailwind-in-your-css
+ */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/**
+ * END --- SETUP TAILWINDCSS EDIT
+ */
+ body {
+  font-family: 'Open Sans', sans-serif;
+ }
+ @layer components {
+  nav.sidebar {
+    @apply bg-gray-800 text-white fixed top-0 left-0 h-screen w-64 border-r border-gray-700 flex flex-col shadow-xl z-20;
+  }
+  nav.sidebar h1 {
+    @apply text-center text-lg h-8 font-bold;
+  }
+  nav.sidebar h2 {
+    @apply text-center text-gray-400 font-bold uppercase text-sm bg-gray-700 border-y-2 border-gray-800;
+  }
+  nav.sidebar a {
+    @apply w-full bg-gray-700 px-1 py-0.5 transition-all text-gray-400 font-bold flex flex-row items-center gap-1;
+  }
+  nav.sidebar a:hover {
+    @apply bg-gray-600 transition-all text-gray-300;
+  }
+  nav.sidebar a i {
+    @apply ml-auto;
+  }
+  nav.sidebar > ul {
+    @apply flex flex-col overflow-auto;
+  }
+  nav.sidebar > ul > :last-child {
+    @apply absolute bottom-0 w-full;
+  }
+  nav.sidebar ul li {
+    @apply flex flex-col;
+  }
+  nav.sidebar ul li ul {
+    @apply flex flex-col;
+  }
+  nav.sidebar ul li ul li a {
+    @apply border-l-4 border-gray-400;
+  }
+  nav.sidebar ul button {
+    @apply w-full bg-gray-700 px-1 py-0.5 transition-all text-gray-400 font-bold flex flex-row items-center gap-1;
+  }
+  nav.sidebar ul button:hover {
+    @apply bg-gray-600 transition-all text-gray-300;
+  }
+  nav.sidebar ul button i {
+    @apply ml-auto;
+  }
+  nav.sidebar .activelink {
+    @apply bg-gray-600;
+  }
+  nav.sidebar button.open i {
+    @apply -rotate-90 transition-all;
+  }
+  nav.sidebar button i {
+    @apply transition-all;
+    }
+  nav.sidebar .open {
+    @apply bg-gray-700;
+  }
+  nav.sidebar li:has(> .open) {
+    @apply bg-gray-700;}
+  /*
+  * MAIN CONTENT
+  */
+  main.content {
+    @apply bg-gray-800 text-white fixed top-0 left-64 h-screen w-[calc(100vw-16rem)] p-2 flex flex-col gap-1 overflow-y-auto overflow-x-hidden;
+  }
+  main.content-full {
+    @apply bg-gray-800 text-white fixed top-0 left-0 h-screen w-screen p-2 flex flex-col gap-1 overflow-y-auto overflow-x-hidden;
+  }
+  main.content h1 {
+    @apply text-2xl;
+  }
+  main.content h2 {
+    @apply text-lg;
+  }
+  main.content hr {
+    @apply border-gray-700;
+  }
+  main.content input {
+    @apply bg-transparent;
+  }
+  main.content select {
+    @apply bg-transparent;
+  }
+  main.content div.form-wrapper {
+    @apply flex flex-col p-2 border border-gray-700 ;
+  }
+  main.content div.form-wrapper form {
+    @apply flex flex-col gap-1;
+  }
+  main.content div.form-wrapper label {
+    @apply text-gray-400;
+  }
+  main.content div.form-wrapper select {
+    @apply border border-gray-400 p-2;
+  }
+  main.content div.form-wrapper input {
+    @apply border border-gray-400 p-2;
+  }
+  main.content div.form-wrapper textarea {
+    @apply bg-transparent border border-gray-400 p-2;
+  }
+  main.content div.form-wrapper button {
+    @apply bg-transparent border border-gray-400 p-2;
+  }
+  input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent;
+    border: none; /* Otherwise white in Chrome */
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid black;
+    height: 36px;
+    width: 16px;
+    border-radius: 10px;
+    background: rgb(55 65 81);
+    cursor: pointer;
+    margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: rgb(55 65 81);
+    cursor: pointer;
+  }
+
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: rgb(55 65 81);
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: transparent;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: transparent;
+  }
+
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #3071a9;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #367ebd;
+  }
+
+  main.content div.container {
+    @apply flex flex-col p-2 border border-gray-700 w-full;
+  }
+  main.content table {
+    @apply table-auto w-full;
+  }
+
+  main.content table thead tr {
+    @apply bg-gray-800 text-white border border-gray-800 text-left;
+  }
+  main.content table thead tr th {
+    @apply p-1;
+  }
+  main.content table tbody tr {
+    @apply bg-transparent text-white border border-gray-800;
+  }
+  main.content table tbody tr:hover {
+    @apply bg-gray-800/50;
+  }
+  main.content table tbody tr td {
+    @apply p-1;
+  }
+  main.content div.c {
+    @apply border border-gray-700 p-2;
+  }
+  main.content div.row-5 {
+    @apply grid grid-cols-5 gap-1;
+  }
+  main.content div.row-5.infoadmin > div {
+    @apply border border-gray-700 p-2 rounded;
+  }
+  main.content div.row-5.infoadmin > div > button {
+    @apply border border-gray-700 w-full py-2 mt-1 rounded-full shadow;
+  }
+  main.content div.row-5.infoadmin > div > button:hover {
+    @apply shadow-xl bg-gray-700;
+  }
+  main.content div.adminforms > div {
+    @apply flex flex-col gap-1;
+  }
+  main.content div.adminforms div.article {
+    @apply border border-gray-700 rounded p-1 flex flex-row shadow;
+  }
+  main.content div.adminforms div.article span {
+    @apply flex flex-row items-center;
+  }
+  main.content div.adminforms div.article h1 {
+    @apply text-lg font-bold;
+  }
+  main.content div.adminforms div.article svg {
+    @apply my-2 mr-1 text-gray-400;
+  }
+  main.content div.dashboardstatistics {
+    @apply grid grid-cols-3;
+  }
+  main.content div.dashboardstatistics div.col {
+    @apply flex flex-col;
+  }
+  main.content div.dashboardstatistics div.col p {
+    @apply pl-2 mx-1 mt-2 border-b rounded-b-lg shadow-lg border-gray-700;
+  }
+  main.content div.adminforms div.article div.btn-wrap {
+    @apply relative ml-auto flex flex-row gap-1;
+  }
+  main.content div.adminforms div.article div.btn-wrap button {
+    @apply border border-gray-700 w-16 flex justify-center items-center rounded transition-all;
+  }
+  main.content div.adminforms div.article div.btn-wrap button svg {
+    @apply text-white;
+  }
+  main.content div.adminforms div.article div.btn-wrap button:hover {
+    @apply transition-all;
+    border-radius: 0.75rem;
+    color: white;
+
+
+  }
+  .up-wrap {
+    @apply h-full flex flex-row border-gray-700;
+  }
+  .up-wrap div.col {
+    @apply flex flex-col h-full w-full;
+  }
+  .up-wrap div.profile-head {
+    @apply border border-b-0 border-gray-700 text-center py-1 flex flex-col items-center;
+  }
+  .up-wrap div.profile-head div {
+    @apply mx-4 px-4 py-2 mb-1 w-[20%] border border-gray-700 flex flex-col items-center;
+  }
+  .up-wrap div.profile-head div span {
+    @apply flex flex-row gap-2 items-center;
+  }
+  .up-wrap div.role-trainee-func {
+    @apply border border-t-0 border-gray-700 flex flex-col p-2;
+  }
+  .up-wrap button {
+    @apply w-full border border-gray-700 py-2;
+  }
+  .up-wrap button:hover {
+    @apply bg-gray-700;
+  }
+  .up-wrap button#b1 {
+    @apply border-b-0;
+  }
+  .up-wrap div.vacation {
+    @apply border border-t-0 border-gray-700 w-full;
+  }
+  .up-wrap div.vacation div {
+    @apply border-b border-gray-700 flex flex-row
+  }
+  .up-wrap div.vacation div#last {
+    @apply border-b-0;
+  }
+  .up-wrap div.vacation div span#btns {
+    @apply ml-auto w-32 h-full flex flex-row;
+  }
+  .up-wrap div.vacation div span#btns button {
+    @apply border border-t-0 border-gray-700 w-full h-full flex justify-center items-center transition-all;
+  }
+  .up-wrap div.vacation div span#details {
+    @apply p-2;
+  }
+  .up-wrap div.func-1 {
+    @apply border border-gray-700 border-t-0 h-full text-center;
+  }
+  .up-wrap div.col#col2 * {
+    @apply border-l-0;
+  }
+  .up-wrap div.col#col2 div.add-comment {
+    @apply flex flex-col;
+  }
+  .up-wrap div.col#col2 div.add-comment textarea {
+    @apply border border-l-0 border-gray-700 w-full bg-transparent;
+  }
+  .up-wrap div.col#col2 div.add-comment button {
+    @apply text-white;
+  }
+  .up-wrap div.col#col2 table thead tr {
+    @apply bg-transparent;
+  }
+  .dev-grid {
+    @apply grid grid-cols-10 gap-1;
+  }
+  .dev-grid button {
+    @apply border border-gray-700 p-1 flex flex-row items-center;
+  }
+  .dev-grid button:hover {
+    @apply bg-gray-700;
+  }
+  div.row {
+    @apply flex flex-row gap-1;
+  }
+  div.card {
+    @apply border border-gray-700 p-2 rounded-lg flex flex-col;
+  }
+  div.card h1 {
+    @apply text-lg font-bold;
+  }
+  div.card h2 {
+    @apply text-sm border-b border-r pr-1 rounded-r shadow w-fit my-1;
+  }
+  div.card a {
+    @apply font-bold text-indigo-500;
+  }
+  .bugactions button {
+    @apply border border-gray-700 p-1 flex flex-row items-center;
+  }
+  .bugactions button:hover {
+    @apply bg-gray-700;
+  }
+  .bugactions button#delete {
+    @apply bg-red-500;
+  }
+  .bugactions button#delete:hover {
+    @apply bg-red-700;
+  }
+  .bugactions button#grant {
+    @apply bg-green-500;
+  }
+  .bugactions button#grant:hover {
+    @apply bg-green-700;
+  }
+  div.bugc {
+    @apply flex flex-row gap-1 border border-gray-700 p-2;
+  }
+  div.bugc div.buginfo {
+    @apply flex flex-col gap-2;
+  }
+  div.bugc div.buginfo h3 {
+    @apply font-bold;
+  }
+  div.bugc div.buginfo span {
+    @apply text-base font-thin;
+  }
+  div.bugc hr {
+    @apply mt-1;
+  }
+  form .fielderror {
+    @apply text-red-500 italic font-thin;
+  }
+  form .error {
+    @apply border-red-500;
+  }
+  .reloadbtn {
+    @apply absolute top-1 left-1 flex items-center justify-center bg-gray-700 p-1 rounded-full transition-all;
+  }
+  .reloadbtn:hover {
+    @apply cursor-pointer bg-gray-600 transition-all;
+    animation: reloadbtnanimation 1s infinite;
+  }
+  div.notif-row {
+    @apply flex flex-col gap-2 w-full items-center;
+  }
+  div.notification {
+    @apply w-full border-b border-b-gray-800 pb-2;
+  }
+  div.notification:last-child {
+    @apply border-b-0;
+  }
+  div.notification header {
+    @apply flex flex-row items-center;
+  }
+  /* div.notification header > h2 {
+    @apply ml-auto;
+  } */
+  /* div.notification {
+    @apply bg-gray-700 border border-gray-800 p-2 rounded-lg flex flex-row gap-4 shadow-2xl;
+  }
+  div.notification::before {
+    position: absolute;
+    content: "";
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    transform: translateX(-100%) translateY(-100%);
+    border-radius: 100%;
+  }
+  div.notification h1 {
+    @apply text-lg font-bold;
+  }
+  div.notification h2 {
+    @apply text-sm border-b border-r pr-1 rounded-r shadow w-fit my-1;
+  }
+  div.notification a {
+    @apply font-bold text-indigo-500;
+  }
+  div.notification div {
+    @apply flex flex-col justify-center;
+  }
+  div.notification div button {
+    @apply border border-gray-700 p-2 rounded flex items-center justify-center gap-2 transition-all;
+  }
+  div.notification div button:hover {
+    @apply bg-gray-700 rounded-xl transition-all;
+  }
+  div.notification-global {
+    @apply border border-gray-700 p-2 rounded-lg flex flex-row gap-4;
+  }
+  div.notification-global::before {
+    position: absolute;
+    content: "";
+    background-color: lightgreen;
+    width: 15px;
+    height: 15px;
+    transform: translateX(-100%) translateY(-100%);
+    border-radius: 100%;
+  }
+  div.notification-global h1 {
+    @apply text-lg font-bold;
+  }
+  div.notification-global h2 {
+    @apply text-sm border-b border-r pr-1 rounded-r shadow w-fit my-1;
+  }
+  div.notification-global a {
+    @apply font-bold text-indigo-500;
+  }
+  div.notification-global div {
+    @apply flex flex-col justify-center;
+  }
+  div.notification-global div button {
+    @apply border border-gray-700 p-2 rounded flex items-center justify-center gap-2 transition-all;
+  }
+  div.notification-global div button:hover {
+    @apply bg-gray-700 rounded-xl transition-all;
+  }
+  div.notification-reminder {
+    @apply border border-gray-700 p-2 rounded-lg flex flex-row gap-4;
+  }
+  div.notification-reminder::before {
+    position: absolute;
+    content: "";
+    background-color: lightblue;
+    width: 15px;
+    height: 15px;
+    transform: translateX(-100%) translateY(-100%);
+    border-radius: 100%;
+  }
+  div.notification-reminder h1 {
+    @apply text-lg font-bold;
+  }
+  div.notification-reminder h2 {
+    @apply text-sm border-b border-r pr-1 rounded-r shadow w-fit my-1;
+  }
+  div.notification-reminder a {
+    @apply font-bold text-indigo-500;
+  }
+  div.notification-reminder div {
+    @apply flex flex-col justify-center;
+  }
+  div.notification-reminder div button {
+    @apply border border-gray-700 p-2 rounded flex items-center justify-center gap-2 transition-all;
+  }
+  div.notification-reminder div button:hover {
+    @apply bg-gray-700 rounded-xl transition-all;
+  } */
+  div.statsgrid {
+    @apply grid grid-cols-3 gap-1;
+  }
+  div.statsgrid div {
+    @apply border-gray-700 flex flex-col items-center justify-center py-2;
+  }
+  div.statsgrid div h3 {
+    @apply text-lg font-bold;
+  }
+  div.statsgrid div p {
+    @apply text-sm font-thin;
+  }
+  ul.changelogs {
+    @apply flex flex-col gap-1 w-full;
+  }
+  ul.changelogs li {
+    @apply flex flex-row gap-2;
+  }
+  ul.changelogs li span {
+    @apply border rounded px-1;
+  }
+  ul.changelogs li.Add span {
+    @apply bg-green-500 text-white border-green-500;
+  }
+  ul.changelogs li.Rem span {
+    @apply bg-red-500 text-white border-red-500;
+  }
+  ul.changelogs li.Change span {
+    @apply bg-teal-500 text-white border-teal-500;
+  }
+  ul.changelogs li.Fix span {
+    @apply bg-orange-500 text-white border-orange-500;
+  }
+  ul.changelogs li.Add span::before {
+    content: "+";
+    margin-right: 0.5em;
+  }
+  ul.changelogs li.Rem span::before {
+    content: "-";
+    margin-right: 0.5em;
+  }
+  ul.changelogs li.Change span::before {
+    content: "*";
+    margin-right: 0.5em;
+  }
+  ul.changelogs li.Fix span::before {
+    content: "!";
+    margin-right: 0.5em;
+  }
+  ul.changelogs li.Section {
+    @apply w-[16rem] my-2 border border-gray-800 rounded py-[0.5em] shadow flex flex-row items-center justify-center gap-2;
+  }
+/* new dashboard classes */
+  div.tsinfo-row {
+    @apply flex flex-row gap-8;
+  }
+  div.tsinfo-row div.infocard {
+    @apply text-center h-full  py-4;
+  }
+  div.infocard {
+    @apply flex flex-col items-center justify-center w-full shadow-xl bg-gray-700 rounded-lg;
+  }
+  div.infocard h3 {
+    @apply text-gray-400 uppercase font-bold text-sm;
+  }
+  div.infocard h1 {
+    @apply text-2xl font-bold my-2;
+  }
+  div.infocard p {
+    @apply text-sm font-thin;
+  }
+  div.dashboard-content {
+    @apply flex flex-row gap-8 h-full;
+  }
+  div.col {
+    @apply w-full flex flex-col gap-6;
+  }
+  div.infocard > div.header {
+    @apply w-full border-b-2 py-2 border-gray-800 bg-gray-800/50 text-center flex items-center justify-center h-fit;
+  }
+  div.infocard > div.header span {
+    @apply text-gray-400 uppercase font-bold text-sm;
+  }
+  div.infocard > div.content {
+    @apply text-left flex flex-col items-center w-full p-2 flex-grow;
+  }
+  div.infocard div.news-card {
+    @apply w-full p-2 border-b border-gray-800;
+  }
+  div.infocard div.news-card > span {
+    @apply text-lg font-normal;
+  }
+  div.infocard div.news-card div.info {
+    @apply flex flex-row items-center gap-1 border-t border-gray-800 mt-1 pt-2;
+  }
+  div.infocard div.news-card div.info p::before {
+    content: "@";
+  }
+  div.infocard div.news-card div.info > p {
+    @apply text-base;
+  }
+  div.infocard div.news-card div.info > span.role {
+    @apply text-base font-bold px-[0.75rem] rounded-full;
+  }
+  div.infocard div.news-card div.info img {
+    @apply h-14 rounded-full border border-white mr-1;
+  }
+  /* div.infocard button {
+    @apply border border-gray-800 px-2 py-1 mb-1 flex flex-row gap-2 items-center justify-center rounded-lg;
+  } */
+  span.date {
+    @apply ml-2 text-xs text-gray-400;
+  }
+  .createdby {
+    @apply text-xs text-gray-400 uppercase;
+  }
+  div.formwrap {
+    @apply flex flex-col w-full;
+  }
+  div.formwrap form {
+    @apply flex flex-col gap-1;
+  }
+  div.formwrap label {
+    @apply text-white;
+  }
+  div.formwrap select {
+    @apply border rounded-lg border-gray-800 shadow p-2;
+  }
+  div.formwrap input {
+    @apply border rounded-lg border-gray-800 shadow p-2;
+  }
+  div.formwrap textarea {
+    @apply bg-transparent rounded-lg border shadow border-gray-800 p-2;
+  }
+  div.formwrap button {
+    @apply bg-transparent rounded-lg border shadow border-gray-800 p-2;
+  }
+  div.addusertag {
+    @apply flex flex-row flex-wrap gap-2;
+  }
+  /* buttons */
+  div.addusertag h6 {
+    @apply px-2 py-1 rounded-full hover:cursor-pointer;
+  }
+  div.addusertag h6. {
+    @apply bg-black text-white border-white;
+  }
+  div.addusertag h6.entwickler:hover {
+    @apply bg-white text-black border-black;
+  }
+  div.addusertag h6.administrator {
+    @apply bg-red-500 text-white border-red-500;
+  }
+  div.addusertag h6.administrator:hover {
+    @apply bg-white text-red-500 border-red-500;
+  }
+  div.addusertag h6.operator {
+    @apply bg-orange-500 text-white border-orange-500;
+  }
+  div.addusertag h6.operator:hover {
+    @apply bg-white text-orange-500 border-orange-500;
+  }
+  div.addusertag h6.moderatorleitung {
+    @apply bg-indigo-600 text-white border-indigo-600;
+  }
+  div.addusertag h6.moderatorleitung:hover {
+    @apply bg-white text-indigo-600 border-indigo-600;
+  }
+  div.addusertag h6.supportleitung {
+    @apply bg-blue-600 text-white border-blue-600;
+  }
+  div.addusertag h6.supportleitung:hover {
+    @apply bg-white text-blue-600 border-blue-600;
+  }
+  div.addusertag h6.moderator {
+    @apply bg-indigo-500 text-white border-indigo-500;
+  }
+  div.addusertag h6.moderator:hover {
+    @apply bg-white text-indigo-500 border-gray-500;
+  }
+  div.addusertag h6.supporter {
+    @apply bg-blue-500 text-white border-blue-500;
+  }
+  div.addusertag h6.supporter:hover {
+    @apply bg-white text-blue-500 border-gray-500;
+  }
+  div.addusertag h6.probe-moderator {
+    @apply bg-indigo-400 text-white border-indigo-400;
+  }
+  div.addusertag h6.probe-moderator:hover {
+    @apply bg-white text-indigo-400 border-indigo-400;
+  }
+  div.addusertag h6.probe-supporter {
+    @apply bg-blue-400 text-white border-blue-400;
+  }
+  div.addusertag h6.probe-supporter:hover {
+    @apply bg-white text-blue-400 border-blue-400;
+  }
+  .pricelists .infocard button {
+    @apply w-full flex items-center justify-center;
+  }
+
+  /* Tables */
+  table.table {
+    @apply border border-gray-800;
+  }
+  /* End Tables */
+  /* ACproles */
+  .acprole {
+    @apply flex items-center justify-center w-fit px-2 rounded-full;
+  }
+  .acprole.entwickler {
+    @apply bg-yellow-400 text-gray-200;
+  }
+  .acprole.probe-moderator {
+    @apply bg-violet-400 text-white;
+  }
+  .acprole.supportleitung {
+    @apply bg-teal-600 text-white;
+  }
+  .acprole.probe-supporter {
+    @apply bg-teal-400 text-white;
+  }
+  .acprole.administrator {
+    @apply bg-red-600 text-white;
+  }
+  /* end acproles */
+  /* Roles color classes */
+  .entwickler {
+    @apply bg-black text-white border-black;
+  }
+  .supporter {
+    @apply bg-blue-500 text-white border-blue-500;
+  }
+  .moderator {
+    @apply bg-indigo-500 text-white border-indigo-500;
+  }
+  .management {
+    @apply bg-orange-500 text-white border-orange-500;
+  }
+/* end buttons */
+ /*Dismissed Cases*/
+  .dismissedcases {
+  @apply w-full flex flex-col gap-1;
+  }
+  .dismissedcases .case {
+    @apply border-b border-gray-800 pb-1 mb-1;
+  }
+  .dismissedcases .case .header {
+    @apply flex mb-1;
+  }
+  .dismissedcases .case .content {
+    @apply text-gray-300 ml-2 w-full;
+  }
+  div.grid-3 {
+    @apply grid grid-cols-3 gap-1 w-full;
+  }
+  div.grid-3 div {
+    @apply w-full flex justify-center items-center flex-col;
+  }
+  div.grid-5 {
+    @apply grid grid-cols-5 gap-1 w-full;
+  }
+  div.grid-5 div {
+    @apply w-full flex justify-center items-center flex-col;
+  }
+
+ /*End Dismissed Cases*/
+ .role {
+  @apply text-xs px-2 py-0.5 rounded-full;
+ }
+ .role#system {
+  @apply bg-gray-500 text-white;
+ }
+ .role#entwickler {
+  @apply bg-yellow-500 text-white;
+ }
+ /* DONE: ROllen Colors aus dem TS3 kopieren! */
+ .role#administrator
+ {
+  @apply bg-[#ff0604] text-white;
+ }
+ .role#operator {
+  @apply bg-[#ff6d06] text-white;
+ }
+ .role#moderatorleitung {
+  @apply bg-[hsl(321,75%,29%)] text-white;
+ }
+ .role#supportleitung {
+  @apply bg-[hsl(178,75%,28%)] text-white;
+ }
+ .role#moderator {
+  @apply bg-[hsl(318,86%,36%)] text-white;
+ }
+ .role#supporter {
+  @apply bg-[hsl(180,100%,32%)] text-white;
+ }
+ .role#probe-moderator {
+  @apply bg-[hsl(318,100%,40%)] text-white;
+ }
+ .role#probe-supporter {
+  @apply bg-[hsl(180,100%,40%)] text-white;
+ }
+ div.citation-list {
+  @apply flex flex-col w-full;
+ }
+ div.citation {
+  @apply flex flex-row items-start justify-start w-full border-b pb-2 mb-2 border-gray-800;
+ }
+ div.citation:last-child {
+  @apply border-0 pb-0 mb-0;
+ }
+ div.news {
+  @apply w-full border-b-2 pb-2 mb-2 border-b-gray-800;
+ }
+ div.news:last-child {
+  @apply border-b-0 pb-0 mb-0;
+ }
+ div.news > section {
+  @apply p-2 border-b mb-2 pb-2 border-b-gray-800;
+ }
+ div.news > div.info {
+  @apply flex flex-row items-center gap-2 pl-1 py-1;
+ }
+ div.news > div.info img {
+  @apply h-12 rounded-full border-2 border-gray-400;
+ }
+ div.news > section > div h1 {
+  @apply text-3xl font-bold !important;
+ }
+  div.news > section > div h2 {
+    @apply text-2xl font-bold !important;
+  }
+  div.news > section > div h3 {
+    @apply text-xl font-bold text-white !important;
+  }
+  div.news > section > div h4 {
+    @apply text-lg font-bold !important;
+  }
+  div.news > section > div h5 {
+    @apply text-base font-bold !important;
+  }
+  div.news > section > div h6 {
+    @apply text-sm font-bold !important;
+  }
+  div.news > section > div ul {
+    @apply list-disc ml-4;
+  }
+  div.news > section > div ol {
+    @apply list-decimal ml-4;
+  }
+  div.infopanel {
+    @apply w-full flex flex-col gap-1 border-b border-gray-800 pb-2 mb-2;
+  }
+  div.infopanel:last-child {
+    @apply border-0 pb-0 mb-0;
+  }
+  div.case > div.add-comment {
+    @apply border-t mt-2 pt-2 border-gray-800 px-12;
+  }
+  div.case > div.comments {
+    @apply border-t mt-2 pt-2 border-gray-800 px-12;
+  }
+  div.news-card span.summary h1 {
+    @apply text-3xl font-bold !important;
+   }
+    div.news-card span.summary h2 {
+      @apply text-2xl font-bold !important;
+    }
+    div.news-card span.summary h3 {
+      @apply text-xl font-bold text-white !important;
+    }
+    div.news-card span.summary h4 {
+      @apply text-lg font-bold !important;
+    }
+    div.news-card span.summary h5 {
+      @apply text-base font-bold !important;
+    }
+    div.news-card span.summary h6 {
+      @apply text-sm font-bold !important;
+    }
+    div.news-card span.summary ul {
+      @apply list-disc ml-4;
+    }
+    div.news-card span.summary ol {
+      @apply list-decimal ml-4;
+    }
+    button.button {
+      @apply text-xs px-2 py-1 rounded;
+    }
+    button.button[fluid] {
+      @apply w-full;
+    }
+    button.button#black {
+      @apply bg-black text-white;
+    }
+    button.button#black:hover {
+      @apply bg-white text-black;
+    }
+    button.button#red {
+      @apply bg-red-500 text-white;
+    }
+    button.button#red:hover {
+      @apply bg-white text-red-500;
+    }
+    button.button#green {
+      @apply bg-green-500 text-white;
+    }
+    button.button#green:hover {
+      @apply bg-white text-green-500;
+    }
+    div.rulescontent {
+      @apply w-full flex flex-col text-left;
+      }
+  div.rulescontent > ol {
+    @apply list-decimal ml-10 my-1 !important;
+  }
+  div.rulescontent > ul {
+    @apply list-disc ml-10 my-1 !important;
+  }
+  div.rulescontent > h1 {
+    @apply text-2xl font-bold !important;
+  }
+  div.rulescontent > h2 {
+    @apply text-xl font-bold !important;
+  }
+  div.rulescontent > h3 {
+    @apply text-base font-bold text-white normal-case !important;
+  }
+  div.rulescontent > h4 {
+    @apply text-sm font-bold my-0.5 !important;
+  }
+  div.rulescontent > h5 {
+    @apply text-xs font-bold my-0.5 !important;
+  }
+  div.rulescontent > h6 {
+    @apply text-xs font-bold my-0.5 !important;
+  }
+}
+
+/* CSS */
+
+@keyframes reloadbtnanimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(55 65 81);
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(156 163 175);
+}

@@ -1,0 +1,187 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+// TODO: Please remove the following example:
+model UserExample {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+
+model User {
+  id             Int @id @default(autoincrement())
+  email          String  @unique
+  hashedPassword      String    // <─┐
+  salt                String    // <─┼─ add these lines
+  resetToken          String?   // <─┤
+  resetTokenExpiresAt DateTime? // <─┘
+  roles              String @default("")
+  isActive          Boolean @default(false)
+  setUp            Boolean @default(false)
+  BugPoints       Int @default(0)
+}
+
+model VacationRequest {
+  id Int @id @default(autoincrement())
+  userName String
+  startDate DateTime
+  endDate DateTime
+  status String @default("pending")
+  createdAt DateTime @default(now())
+  reason String
+}
+
+model TraineeReview {
+  id Int @id @default(autoincrement())
+  userName String
+  overallRating Int
+  rulesRating Int
+  communicationRating Int
+  commentRating Int
+  review String
+  createdAt DateTime @default(now())
+  creator String
+}
+
+model DismissedCase {
+  id Int @id @default(autoincrement())
+  userName String
+  userId Int
+  opName String
+  opRole String
+  reason String
+  evidence String
+  timestamp DateTime
+  createdAt DateTime @default(now())
+}
+
+model DismissedCaseComment {
+  id Int @id @default(autoincrement())
+  caseId Int
+  opName String
+  opRole String
+  content String
+  createdAt DateTime @default(now())
+}
+
+model MeetingSignOff {
+  id Int @id @default(autoincrement())
+  userName String
+  reason String
+  timestamp DateTime
+}
+
+model InfoPanel {
+  id Int @id @default(autoincrement())
+  name String
+  content String
+  createdAt DateTime @default(now())
+  createdBy String
+  changedBy String
+  side String @default("hidden")
+}
+model Bug {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  createdAt DateTime @default(now())
+  createdBy String
+  isValid Boolean @default(false)
+  isKnown Boolean @default(false)
+  isFixed Boolean @default(false)
+}
+model Notification {
+  id Int @id @default(autoincrement())
+  userName String
+  createdBy String
+  createdAt DateTime @default(now())
+  title String
+  content String
+  isRead Boolean @default(false)
+}
+model Changelog {
+  id Int @id @default(autoincrement())
+  type String
+  content String
+  createdAt DateTime @default(now())
+  createdBy String
+}
+model Reminder {
+  id Int @id @default(autoincrement())
+  role String
+  date DateTime
+  createdAt DateTime @default(now())
+  createdBy String
+  content String @default("")
+  isRead Boolean @default(false)
+}
+model Todo {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  createdAt DateTime @default(now())
+  createdBy String
+  isDone Boolean @default(false)
+  side String
+}
+model News {
+  id Int @id @default(autoincrement())
+  title String
+  content String
+  createdAt DateTime @default(now())
+  createdBy String
+  createdByRole String
+  side String
+}
+model Citation {
+  id Int @id @default(autoincrement())
+  content String
+  createdAt DateTime @default(now())
+  createdBy String
+  createdByRole String
+  userName String
+}
+model Summary {
+  id Int @id @default(autoincrement())
+  content String
+  createdAt DateTime @default(now())
+  side String
+  title String
+}
+model Comment {
+  id Int @id @default(autoincrement())
+  content String
+  createdAt DateTime @default(now())
+  createdBy String
+  createdByRole String
+  userName String
+  userId Int @default(0)
+}
+model RulesPanel  {
+  id Int @id @default(autoincrement())
+  title String
+  sortOrder Int
+  content String
+  createdAt DateTime @default(now())
+  createdBy String
+  side String
+  type String
+}
+model Message {
+  id Int @id @default(autoincrement())
+  title String
+  content String
+  createdAt DateTime @default(now())
+  createdBy String
+  createdByRole String
+  side String
+}
