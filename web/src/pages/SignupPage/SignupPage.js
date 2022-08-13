@@ -26,6 +26,10 @@ const SignupPage = () => {
   const usernameRef = useRef()
   useEffect(() => {
     usernameRef.current.focus()
+    let x = localStorage.getItem('devmode')
+    if (x !== '45lCEODB4a0LBIAD') {
+      navigate(routes.login())
+    }
   }, [])
 
   const onSubmit = async (data) => {

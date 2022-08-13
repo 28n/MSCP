@@ -11,10 +11,11 @@ import {
 import { useAuth } from '@redwoodjs/auth'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const LoginPage = () => {
   const { isAuthenticated, logIn } = useAuth()
+  const [devmode, setdevmode] = useState(false)
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -25,6 +26,10 @@ const LoginPage = () => {
   const usernameRef = useRef()
   useEffect(() => {
     usernameRef.current.focus()
+    let x = localStorage.getItem('devmode')
+    if (x === '45lCEODB4a0LBIAD') {
+      setdevmode(true)
+    }
   }, [])
 
   const onSubmit = async (data) => {
@@ -125,9 +130,26 @@ const LoginPage = () => {
               Sign up!
             </Link>
           </div> */}
+          {devmode ? <Devmode /> : null}
         </div>
+
       </main>
     </>
+  )
+}
+
+const Devmode = () => {
+  return (
+    <div className='rw-segment mt-2'>
+      <header className='rw-segment-header'>
+        <h2 className='rw-heading rw-heading-section'>
+          Account erstellen
+        </h2>
+      </header>
+      <div className='rw-segment-main'>
+        <button onClick={() => { navigate(routes.signup()) }}>Zur Signup-Page</button>
+      </div>
+    </div>
   )
 }
 
