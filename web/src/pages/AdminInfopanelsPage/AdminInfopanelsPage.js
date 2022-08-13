@@ -1,9 +1,24 @@
-import { MetaTags } from '@redwoodjs/web'
+import { MetaTags, useMutation } from '@redwoodjs/web'
 import { useAuth } from '@redwoodjs/auth'
 import EditableRulesPanelCell from 'src/components/EditableRulesPanelCell'
+import { Form, Label, TextField, SelectField, Submit } from '@redwoodjs/forms'
+
+const CREATE_RULES_PANEL_MUTATION = gql`
+  mutation CreateRulesPanel($input: CreateRulesPanelInput!) {
+    createRulesPanel(input: $input) {
+      id
+    }
+  }
+`
 
 const AdminInfopanelsPage = () => {
   const { currentUser } = useAuth()
+  const [createRulesPanel] = useMutation(CREATE_RULES_PANEL_MUTATION, {
+    onCompleted: () => {
+      window.location.reload()
+    }
+
+  })
   let side = ''
   switch (currentUser.roles) {
     case 'Supportleitung':
@@ -14,6 +29,17 @@ const AdminInfopanelsPage = () => {
     case 'Administrator':
     case 'Entwickler':
       side = 'both'
+  }
+  const sendPanel = (data) => {
+    let obj = {
+      title: data.title,
+      sortOrder: 1,
+      content: "Dies ist ein neues Panel! Bitte warte, während deine Leitung das Panel bearbeitet.",
+      createdBy: currentUser.email,
+      side: data.side,
+      type: data.type,
+    }
+    createRulesPanel({ variables: { input: obj } })
   }
   return (
     <>
@@ -78,6 +104,33 @@ const AdminInfopanelsPage = () => {
               </div>
             </>
           )}
+          <div className='infocard'>
+            <div className='header'>
+              <span>Ein Infopanel erstellen</span>
+            </div>
+            <div className='content'>
+              <div className='formwrap'>
+                <Form onSubmit={sendPanel}>
+                  <Label htmlFor='title'>Titel</Label>
+                  <TextField name='title' placeholder='...' />
+                  <Label htmlFor='side'>Side</Label>
+                  <SelectField name="side">
+                    <option selected hidden>Bitte wählen</option>
+                    <option value={"support"}>Support</option>
+                    <option value={"moderation"}>Moderation</option>
+                  </SelectField>
+                  <Label htmlFor='type'>Typ</Label>
+                  <SelectField name='type'>
+                    <option selected hidden>Bitte wählen</option>
+                    <option value={"rules"}>Grundsätze</option>
+                    <option value={"acprules"}>ACP-Regeln</option>
+                    <option value={"helprules"}>Hilfestellungen</option>
+                  </SelectField>
+                    <Submit>Absenden</Submit>
+                </Form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
