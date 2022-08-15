@@ -1,6 +1,6 @@
 # README
 
-Hallo Murphy!
+Hallo Anton!
 
 hier wie versprochen die Git-Repo fürs MGCP. Um anzufangen eigenständig zu programmieren, brauchst du einige Dinge auf deinem PC!
 
