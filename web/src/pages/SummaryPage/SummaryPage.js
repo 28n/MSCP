@@ -1,5 +1,5 @@
 import SummariesCell from 'src/components/SummariesCell'
-import SideSummariesCell from 'src/components/sideSummariesCell'
+import SideSummariesCell from 'src/components/SideSummariesCell'
 import {
   Form,
   Submit,

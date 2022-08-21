@@ -1,11 +1,9 @@
-import { Link, routes } from '@redwoodjs/router'
+import { routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { useAuth } from '@redwoodjs/auth'
 import { useEffect, useState } from 'react'
-import { toast } from '@redwoodjs/web/toast'
 import UserTraineeReviewsCell from 'src/components/UserTraineeReviewsCell'
 import NotificationCell from 'src/components/NotificationCell'
-import globalNotificationsCell from 'src/components/globalNotificationsCell'
 import GlobalNotificationsCell from 'src/components/globalNotificationsCell'
 import RemindersCell from 'src/components/RemindersCell'
 import * as FaIcons from 'react-icons/fa'
@@ -13,7 +11,6 @@ import Axios from 'axios'
 import SidenewsesCell from 'src/components/SidenewsesCell'
 import UserCitationsCell from 'src/components/UserCitationsCell'
 import NewsesCell from 'src/components/NewsesCell'
-import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
 /* http://www.randomnumberapi.com/api/v1.0/random?min=100&max=1000&count=5 */
@@ -44,7 +41,6 @@ const DashboardPage = () => {
     })
   }, [])
 
-  let citationactive = false
   {/*if (citationactive === true) {
     confirmAlert({
       title: 'Meldeaufforderung erhalten',

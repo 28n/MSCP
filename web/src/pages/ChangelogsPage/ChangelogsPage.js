@@ -1,6 +1,5 @@
-import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-import ChangelogsCell from 'src/components/ChangeLogsCell'
+import ChangelogsCell from 'src/components/ChangelogsCell'
 import CreateChangelog from 'src/components/CreateChangelog/CreateChangelog'
 import { useAuth } from '@redwoodjs/auth'
 import { useState } from 'react'
