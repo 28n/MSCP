@@ -207,7 +207,16 @@ const DashboardPage = () => {
                 currentUser.roles === 'Operator' ? (
                 <NewsesCell />
               ) : (
-                <SidenewsesCell side="sup" />
+                currentUser.roles === 'Moderatorleitung' ||
+                  currentUser.roles === 'Moderator' ||
+                  currentUser.roles === 'Probe-Moderator' ? (
+                  <SidenewsesCell side="mod" />
+                ) : (
+                  currentUser.roles === 'Supportleitung' ||
+                    currentUser.roles === 'Supporter' ||
+                    currentUser.roles === 'Probe-Supporter' ? (
+                    <SidenewsesCell side="sup" />
+                  ) : null)
               )}
             </div>
           </div>
