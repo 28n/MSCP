@@ -1,8 +1,0 @@
--- CreateTable
-CREATE TABLE "Reminder" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "role" TEXT NOT NULL,
-    "date" DATETIME NOT NULL,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "createdBy" TEXT NOT NULL
-);
