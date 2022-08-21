@@ -9,6 +9,7 @@ const AcpTagsPage = () => {
       <h1>ACP-Tags</h1>
       <h2>Hier findest du alle ACP-Nutzer, deren Tags und Namen</h2>
 
+
       <ACPTagsCell />
     </>
   )

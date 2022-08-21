@@ -45,7 +45,9 @@ const BugreportPage = () => {
     }
     create({ variables: { input: obj } })
   }
+  // TODO fix this page
   return (
+
     <>
       <MetaTags title="Bugreport" description="Bugreport page" />
 
@@ -145,7 +147,7 @@ const BugreportPage = () => {
         <KnownBugsCell />
       </div>
       {currentUser.roles === 'Entwickler' ||
-      currentUser.roles === 'Administrator' ? (
+        currentUser.roles === 'Administrator' ? (
         <UpdateBugsCell />
       ) : null}
     </>
