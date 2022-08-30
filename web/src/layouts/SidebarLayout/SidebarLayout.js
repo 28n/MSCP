@@ -224,7 +224,7 @@ const SidebarLayout = ({ children }) => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink activeClassName="activelink" to="">
+                  <NavLink activeClassName="activelink" to={routes.adminForms()}>
                     <FaIcons.FaFile />
                     Formularantworten
                   </NavLink>
