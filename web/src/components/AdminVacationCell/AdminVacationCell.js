@@ -3,7 +3,8 @@ export const QUERY = gql`
     vacationRequests {
       id
       userName
-      lengthInDays
+      startDate
+      endDate
       status
       createdAt
       reason
