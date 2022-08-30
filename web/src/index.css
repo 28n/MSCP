@@ -962,6 +962,15 @@
   div.rulescontent > h6 {
     @apply text-xs font-bold my-0.5 !important;
   }
+  div.adminforms {
+    @apply border-0;
+  }
+  div.adminforms > div {
+    @apply border-r border-gray-800 flex flex-col break-words p-2;
+  }
+  div.adminforms > div:last-child {
+    @apply border-r-0;
+  }
 }
 
 /* CSS */

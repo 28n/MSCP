@@ -1,3 +1,5 @@
+import AdminMeetingSignoff from "../AdminMeetingSignoff/AdminMeetingSignoff"
+
 export const QUERY = gql`
   query FindAdminMeetingSignoffQuery {
     meetingSignOffs {
@@ -18,5 +20,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ meetingSignOffs }) => {
-  return <div>{JSON.stringify(meetingSignOffs)}</div>
+  return <AdminMeetingSignoff meetingSignOffs={meetingSignOffs} />
 }
